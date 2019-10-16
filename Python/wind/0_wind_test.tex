@@ -1,0 +1,80 @@
+\documentclass[cs4size, UTF8]{ctexart}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}%
+\usepackage{xeCJK}%
+\usepackage{fontspec}%
+\usepackage{mathptmx}%
+\usepackage{amsmath}%
+%
+\title{\heiti 桥梁风荷载计算}%
+\author{WYZ}%
+\date{\today}%
+\CTEXsetup[format={\raggedright\bfseries\large}]{section}%
+\pagestyle{plain}%
+%
+\begin{document}%
+\normalsize%
+\maketitle%
+\section{地质基本情况}%
+\label{sec:}%
+桥梁抗风风险区域：R2
+
+        桥位地表分类：C
+
+        十年重现期风作用水平：W1=19.500 m/s
+
+        百年重现期风作用水平：W2=26.600 m/s
+        
+
+%
+\section{风速参数}%
+\label{sec:}%
+根据规范4.1可得，基本风速值为%
+\[%
+U_{10}=26.600 \,m/s%
+\]%
+
+%
+根据规范4.2.1可得，地表相关参数为%
+\[%
+\alpha_0=0.22 \quad z_0=0.30%
+\]%
+
+%
+根据规范4.2.4可得，桥梁设计基本风速为%
+\[%
+U_{s10}=k_cU_{10}= 0.785\times26.600=20.881 \,m/s%
+\]
+
+%
+\section{主梁风荷载}%
+\label{sec:}%
+根据规范4.2.2可得，主梁基准高度为%
+\[%
+Z=100.00 \,m%
+\]%
+
+%
+根据规范4.2.6可得，主梁构件基准高度处的设计基准风速为%
+\[%
+U_d=k_f\left(\frac{Z}{10}\right)^{\alpha_0}U_{s10}= 1.02\times\left(\frac{100.00}{10}\right)^{0.22}\times20.881= 35.347 \,m/s%
+\]%
+
+%
+根据规范5.2.1可得，等效静阵风风速为%
+\[%
+U_g=G_VU_d= 1.46\times35.347=51.783 \,m/s%
+\]%
+
+%
+根据规范5.3.1可得，横桥向风作用下主梁单位长度上的顺风向等效静阵风荷载为%
+\[%
+F_g=\frac{1}{2}\rho U_g^2C_HD= 0.5\times1.25\times51.783^2\times1.530\times2.000= 5128.373 \,N/m%
+\]
+
+%
+\end{document}
