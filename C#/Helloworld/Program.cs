@@ -5,7 +5,39 @@ namespace Helloworld
 {
     class Program
     {
-        static void WorkingWithIntegers()
+        static void Main(string[] args)
+        {
+            JustforTest();
+            var fib = new List<int> {1, 1};
+            for (int num = 0; num < 10; num++)
+            {
+                var pre1 = fib[fib.Count - 1];
+                var pre2 = fib[fib.Count - 2];
+                fib.Add(pre1 + pre2);
+            }
+            foreach (var item in fib)
+                Console.WriteLine(item);
+            
+            // classes and objects
+            var account = new BankAccount("VVangYZ", 1000);
+            Console.WriteLine($"Account {account.Number} was created for {account.Owner} with {account.Balance} initial balance.");
+            account.MakeDeposit(100, DateTime.Now, "Zyx give me my pin money!");
+            Console.WriteLine(account.Balance);
+            account.MakeWithdrawal(500, DateTime.Now, "Rent payment");
+            Console.WriteLine(account.Balance);
+            try
+            {
+                var invalidAccount = new BankAccount("invalid", -55);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine("Exception caught creating account with negative balance");
+                Console.WriteLine(e.ToString());
+            }
+            Console.WriteLine(account.GetAcountHistory());
+        }
+
+        static void JustforTest()
         {   
             // 调用其他模块，打印简单字符串
             myClass cc = new myClass();
@@ -67,17 +99,15 @@ namespace Helloworld
 
             // 列表
             var names = new List<string> {"<name>", "Ana", "Felipe"};
+            names.Add("Wangxs");
+            names.Add("LiuHH");
+            names.Remove("<name>");
+            names.Sort();
             foreach (var name in names)
             {
                 Console.WriteLine($"Hello, {name.ToUpper()}!");
+                Console.WriteLine($"The index of {name} is {names.IndexOf(name)}.");
             }
-
-            
-        }
-
-        static void Main(string[] args)
-        {
-            WorkingWithIntegers();
         }
     }
 }
